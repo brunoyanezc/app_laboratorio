@@ -1,4 +1,4 @@
-from parser.discover import discover_reports
+from discover import discover_reports
 
 
 def main():
