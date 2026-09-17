@@ -1,6 +1,8 @@
 import pandas as pd
 
-from parser.dataset_builder import build_dataset
+from parser.dataset_builder import (
+    build_dataset
+)
 
 from config.factor_loader import (
     load_factors
@@ -13,7 +15,6 @@ from config.config_loader import (
 
 from calculations.c23 import (
     calculate_c23_concentration,
-    calculate_added_c23_mass,
 )
 
 from calculations.quantification import (
@@ -23,17 +24,23 @@ from calculations.quantification import (
 )
 
 
-def build_results(data_folder):
+def build_results(
+    data_folder,
+    sample_parameters_file,
+    method_file
+):
 
-    # -------------------------
+    # ----------------------------------
     # Datos cromatográficos
-    # -------------------------
+    # ----------------------------------
 
-    dataset = build_dataset(data_folder)
+    dataset = build_dataset(
+        data_folder
+    )
 
-    # -------------------------
-    # Factores
-    # -------------------------
+    # ----------------------------------
+    # Factores TCF / FFAx
+    # ----------------------------------
 
     factors = load_factors()
 
@@ -43,23 +50,23 @@ def build_results(data_folder):
         how="left"
     )
 
-    # -------------------------
-    # Parámetros método
-    # -------------------------
+    # ----------------------------------
+    # Configuración método
+    # ----------------------------------
 
     method = load_method_config(
-        "src/config/method.yaml"
+        method_file
     )
 
     samples = load_sample_parameters(
-        "src/config/sample_parameters.csv"
+        sample_parameters_file
     )
 
-    # -------------------------
-    # Concentración C23
-    # -------------------------
-
     c23_cfg = method["c23"]
+
+    # ----------------------------------
+    # Concentración C23
+    # ----------------------------------
 
     c23_result = calculate_c23_concentration(
         stock_mass_g=c23_cfg["stock_mass_g"],
@@ -72,9 +79,41 @@ def build_results(data_folder):
         c23_result["concentration_g_g"]
     )
 
-    # -------------------------
-    # Agregar parámetros muestra
-    # -------------------------
+    solvent_mass_g = (
+        c23_result["solvent_mass_g"]
+    )
+
+    # ----------------------------------
+    # Parámetros método
+    # ----------------------------------
+
+    dataset["c23_density"] = (
+        c23_cfg["density"]
+    )
+
+    dataset["c23_purity"] = (
+        c23_cfg["purity"]
+    )
+
+    dataset["c23_flask_volume_ml"] = (
+        c23_cfg["flask_volume_ml"]
+    )
+
+    dataset["c23_stock_mass_g"] = (
+        c23_cfg["stock_mass_g"]
+    )
+
+    dataset["c23_solvent_mass_g"] = (
+        solvent_mass_g
+    )
+
+    dataset["c23_concentration_g_g"] = (
+        concentration_g_g
+    )
+
+    # ----------------------------------
+    # Parámetros muestra
+    # ----------------------------------
 
     dataset = dataset.merge(
         samples,
@@ -82,14 +121,18 @@ def build_results(data_folder):
         how="left"
     )
 
+    # ----------------------------------
+    # Masa C23 agregada
+    # ----------------------------------
+
     dataset["mass_c23_added_g"] = (
         dataset["c23_solution_weight_g"]
-        * concentration_g_g
+        * dataset["c23_concentration_g_g"]
     )
 
-    # -------------------------
+    # ----------------------------------
     # Área C23 por muestra
-    # -------------------------
+    # ----------------------------------
 
     c23_areas = (
         dataset.loc[
@@ -109,9 +152,9 @@ def build_results(data_folder):
         how="left"
     )
 
-    # -------------------------
-    # Cálculos
-    # -------------------------
+    # ----------------------------------
+    # WFAMEx
+    # ----------------------------------
 
     dataset["wfamex"] = dataset.apply(
         lambda r: calculate_wfamex(
@@ -123,6 +166,10 @@ def build_results(data_folder):
         axis=1
     )
 
+    # ----------------------------------
+    # Wx
+    # ----------------------------------
+
     dataset["wx"] = dataset.apply(
         lambda r: calculate_wx(
             wfamex=r["wfamex"],
@@ -131,12 +178,86 @@ def build_results(data_folder):
         axis=1
     )
 
+    # ----------------------------------
+    # g/100g
+    # ----------------------------------
+
     dataset["g100g"] = dataset.apply(
         lambda r: calculate_g100g(
             wx=r["wx"],
             sample_weight_g=r["sample_weight_g"],
         ),
         axis=1
+    )
+
+    # ----------------------------------
+    # %FAME
+    # Excluye C23 del denominador
+    # ----------------------------------
+
+    dataset["fame_denominator"] = None
+    dataset["fame_percent"] = None
+
+    for sample_id in dataset["sample_id"].unique():
+
+        sample_mask = (
+            dataset["sample_id"] == sample_id
+        )
+
+        sample_df = dataset.loc[
+            sample_mask
+        ]
+
+        denominator = (
+            sample_df.loc[
+                sample_df["compound"] != "C23:0",
+                "area"
+            ].sum()
+        )
+
+        dataset.loc[
+            sample_mask,
+            "fame_denominator"
+        ] = denominator
+
+        dataset.loc[
+            sample_mask,
+            "fame_percent"
+        ] = (
+            dataset.loc[
+                sample_mask,
+                "area"
+            ]
+            / denominator
+            * 100
+        )
+
+        dataset.loc[
+            sample_mask
+            &
+            (dataset["compound"] == "C23:0"),
+            "fame_percent"
+        ] = 0
+
+    # ----------------------------------
+    # Flags
+    # ----------------------------------
+
+    dataset["is_internal_standard"] = (
+        dataset["compound"] == "C23:0"
+    )
+
+    dataset["is_unknown"] = (
+        dataset["compound"]
+        .astype(str)
+        .str.lower()
+        .isin(
+            [
+                "unknown",
+                "unknow",
+                "-"
+            ]
+        )
     )
 
     return dataset
