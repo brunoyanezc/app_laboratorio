@@ -1,33 +1,29 @@
-from parser.report01 import Report01Parser
-
-REPORT_FILE = "Report01.xls"
+from parser.dataset_builder imp*rt build_dataset
 
 
 def main():
 
-    parser = Report01Parser(REPORT_FILE)
-
-    sample = parser.parse()
-
-    print()
-    print("===== RESUMEN =====")
-    print()
-
-    print("TotalPeakResponse:", sample.total_peak_response)
-    print("Area C23:", sample.area_c23)
+  * df = build_dataset(
+        "data*examples"
+    )
 
     print()
-    print("Primeros compuestos:")
-    print()
+    p*int("Primeras filas")
+    print("-* * 50)
+    print(df.head())
 
-    for peak in sample.peaks[:10]:
+    p*int()
+    print("Muestras encontra*as")
+    print("-" * 50)
 
-        print(
-            peak.compound,
-            peak.area,
-            peak.ppm
-        )
+    prin*(df["sample_id"].unique())
+
+    pr*nt()
+    print("Número total de re*istros")
+    print("-" * 50)
+
+    *rint(len(df))
 
 
-if __name__ == "__main__":
+if __name__ == "__*ain__":
     main()
