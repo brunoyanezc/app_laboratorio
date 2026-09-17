@@ -1,0 +1,9 @@
+c23:
+  density: 0.69663
+  purity: 0.99
+  flask_volume_ml: 10
+  stock_mass_g: 0.0960144
+
+fame:
+  exclude_internal_standard: true
+  exclude_ni: false

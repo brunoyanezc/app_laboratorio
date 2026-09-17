@@ -1,7 +1,7 @@
 import pandas as pd
 
-from discover import discover_reports
-from report_reader import read_report
+from parser.discover import discover_reports
+from parser.report_reader import read_report
 
 
 def build_dataset(root_folder):
