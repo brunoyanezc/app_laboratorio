@@ -1,0 +1,94 @@
+File Name: C:\Chem32\1\Data\15072025PAG\15 07 2025 PAG. S 2025-07-15 14-51-21\VIT25-7250.D
+Creation Date: 7/16/2025 10:05:46
+Sample Name: VIT25-7250
+Sample Description: 
+Method: CP-WAX 52 60m g100g.M last changed 7/16/2025 9:47:38
+
+Signal: FID1B
+     Time Type      Area    Height     Width     Start       End
+----------------------------------------------------------------
+   10.606 BB       7.694     4.595     0.027    10.554    10.668 
+   14.199 MM     356.125   130.890     0.045    14.045    14.291 
+   14.990 BB       3.174     1.119     0.043    14.922    15.096 
+   16.503 MM      32.033    10.173     0.052    16.355    16.605 
+   19.207 MM    1854.893   377.525     0.082    18.943    19.304 
+   19.809 VB S   381.223   104.100     0.057    19.687    19.929 
+   21.399 MM      42.099    11.589     0.061    21.297    21.490 
+   21.922 BB      31.383     8.161     0.059    21.827    22.007 
+   22.327 BV      53.027    13.586     0.063    22.155    22.430 
+   22.633 MM      10.092     2.310     0.073    22.580    22.741 
+   23.969 BB S    94.412    23.901     0.058    23.778    24.159 
+   24.954 BB     607.872    98.914     0.083    24.751    25.072 
+   25.566 MF    4961.316   616.250     0.134    25.154    25.605 
+   25.672 FM     373.414   110.271     0.056    25.605    25.782 
+   26.847 MM    2834.355   465.164     0.102    26.574    26.998 
+   27.344 MM      16.056     3.948     0.068    27.243    27.444 
+   27.601 BB      12.082     2.905     0.062    27.510    27.684 
+   28.274 VB       9.434     2.045     0.057    28.224    28.358 
+   28.665 MM     766.948   165.426     0.077    28.527    28.799 
+   29.524 BB S   108.252    24.585     0.066    29.160    29.659 
+   30.803 BB      61.175    13.568     0.067    30.663    30.942 
+   31.181 MF      30.935     6.434     0.080    31.008    31.229 
+   31.314 FM     138.000    30.099     0.076    31.229    31.463 
+   32.682 BV      20.255     3.945     0.071    32.523    32.904 
+   33.444 VB       8.386     1.829     0.061    33.361    33.562 
+   34.070 BB      51.100    10.777     0.071    33.937    34.259 
+   34.579 BV       5.707     1.193     0.064    34.474    34.679 
+   35.345 BB      35.020     6.855     0.078    35.075    35.541 
+   36.006 VB     593.663   126.526     0.066    35.865    36.140 
+   36.627 BB      45.367     8.832     0.065    36.443    36.832 
+   36.970 BV      54.434    10.855     0.070    36.839    37.061 
+   37.144 VB      19.376     3.440     0.072    37.061    37.302 
+   39.052 VV      31.009     5.541     0.070    38.814    39.293 
+   39.555 BV    1274.780   198.964     0.086    39.302    39.786 
+   40.826 BV      27.026     4.479     0.079    40.658    41.087 
+   42.116 BB      91.518    15.091     0.074    41.936    42.397 
+   42.707 BB      29.907     4.219     0.094    42.560    42.949 
+   43.182 BB     498.492    74.163     0.093    42.954    43.316 
+   43.438 VH      34.856     4.911     0.094    43.316    43.605 
+
+
+   RetTime       Type CalibPeakType                       Signalname          Area%  Compound
+---------------------------------------------------------------------------------------------------------
+    10.606   Expected          Main                            FID1B     0.049 ng/ul C12:0
+    14.199   Expected          Main                            FID1B     2.282 ng/ul C14:0
+    14.990   Expected          Main                            FID1B         0.020 ng/ul C14:1
+    16.503   Expected          Main                            FID1B     0.205 ng/ul C15:0
+    19.207   Expected          Main                            FID1B    11.885 ng/ul C16:0
+    19.809   Expected          Main                            FID1B     2.443 ng/ul C16:1
+    21.399   Expected          Main                            FID1B     0.270 ng/ul C16:2n4
+    21.922   Expected          Main                            FID1B     0.201 ng/ul C17:0
+    22.327   Expected          Main                            FID1B     0.340 ng/ul C16:3n4
+    22.633   Expected          Main                            FID1B     0.065 ng/ul C17:1
+    23.969   Expected          Main                            FID1B     0.605 ng/ul C16:4n1
+    24.954   Expected          Main                            FID1B     3.895 ng/ul C18:0
+    25.566   Expected          Main                            FID1B    31.789 ng/ul C18:1n9
+    25.672   Expected          Main                            FID1B     2.393 ng/ul C18:1n7
+    26.847   Expected          Main                            FID1B    18.161 ng/ul C18:2n6
+    27.344   Expected          Main                            FID1B     0.103 ng/ul C18:2n4
+    27.601   Expected          Main                            FID1B     0.077 ng/ul C18:3n6
+    28.274   Expected          Main                            FID1B     0.060 ng/ul C18:3n4
+    28.665   Expected          Main                            FID1B     4.914 ng/ul C18:3n3
+    29.524   Expected          Main                            FID1B     0.694 ng/ul C18:4n3
+    30.803   Expected          Main                            FID1B     0.392 ng/ul C20:0
+    31.181   Expected          Main                            FID1B     0.198 ng/ul C20:1n11
+    31.314   Expected          Main                            FID1B     0.884 ng/ul C20:1n9
+    32.682   Expected          Main                            FID1B     0.130 ng/ul C20:2n6
+    33.444   Expected          Main                            FID1B     0.054 ng/ul C20:3n6
+    34.070   Expected          Main                            FID1B     0.327 ng/ul C20:4n6
+    34.579   Expected          Main                            FID1B     0.037 ng/ul C20:3n3
+    35.345   Expected          Main                            FID1B     0.224 ng/ul C20:4n3
+    36.006   Expected          Main                            FID1B     3.804 ng/ul C20:5n3
+    36.627   Expected          Main                            FID1B     0.291 ng/ul C22:0
+    36.970    Unknown       NewMain                            FID1B         0.349 ng/ul 
+    37.144   Expected          Main                            FID1B     0.124 ng/ul C22:1n9
+    39.052   Expected          Main                            FID1B     0.199 ng/ul C21:5n3
+    39.555   Expected          Main                            FID1B     8.168 ng/ul C23:0
+    40.826    Unknown       NewMain                            FID1B         0.173 ng/ul 
+    42.116   Expected          Main                            FID1B     0.586 ng/ul C22:5n3
+    42.707   Expected          Main                            FID1B     0.192 ng/ul C24:0
+    43.182   Expected          Main                            FID1B     3.194 ng/ul C22:6n3
+    43.438   Expected          Main                            FID1B     0.223 ng/ul C24:1n9
+
+-------------------------------------------------------------------------------------------------------------
+
