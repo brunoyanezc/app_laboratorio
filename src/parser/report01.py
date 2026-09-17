@@ -1,69 +1,49 @@
 import xlrd
+import pandas as pd
 
-from models.sample import Peak, Sample
 
+def read_peaksumcalc(report_file):
 
-class Report01Parser:
+    workbook = xlrd.open_workbook(report_file)
 
-    SHEET_NAME = "PeakSumCalcT1"
+    sheet = workbook.sheet_by_name("PeakSumCalcT1")
 
-    def __init__(self, filename: str):
-        self.filename = filename
+    data = []
+    total_peak_response = None
 
-    def parse(self) -> Sample:
+    for row in range(sheet.nrows):
 
-        wb = xlrd.open_workbook(self.filename)
+        values = [
+            sheet.cell_value(row, col)
+            for col in range(sheet.ncols)
+        ]
 
-        sheet = wb.sheet_by_name(self.SHEET_NAME)
+        if str(values[0]).strip() == "TotPeakResponse":
+            total_peak_response = float(values[1])
 
-        peaks = []
-        total_peak_response = 0.0
-        area_c23 = None
+        compound = str(values[2]).strip()
 
-        for row in range(sheet.nrows):
+        if not compound:
+            continue
 
-            values = [
-                sheet.cell_value(row, col)
-                for col in range(sheet.ncols)
-            ]
+        try:
+            area = float(values[6])
+        except Exception:
+            area = 0.0
 
-            # TotPeakResponse
-            if row >= 0:
+        try:
+            ppm = float(values[7])
+        except Exception:
+            ppm = 0.0
 
-                label = str(values[0]).strip()
-
-                if label == "TotPeakResponse":
-                    total_peak_response = float(values[1])
-
-            seg_name = str(values[2]).strip()
-
-            if not seg_name:
-                continue
-
-            try:
-                area = float(values[6])
-            except Exception:
-                area = 0.0
-
-            try:
-                ppm = float(values[7])
-            except Exception:
-                ppm = 0.0
-
-            peaks.append(
-                Peak(
-                    compound=seg_name,
-                    area=area,
-                    ppm=ppm
-                )
-            )
-
-            if seg_name == "C23:0":
-                area_c23 = area
-
-        return Sample(
-            sample_id="UNKNOWN",
-            total_peak_response=total_peak_response,
-            area_c23=area_c23,
-            peaks=peaks
+        data.append(
+            {
+                "compound": compound,
+                "area": area,
+                "ppm": ppm
+            }
         )
+
+    df = pd.DataFrame(data)
+
+    return df, total_peak_response
