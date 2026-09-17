@@ -9,17 +9,19 @@ def discover_reports(root_folder: str):
 
     for folder in root.rglob("*.D"):
 
-        report_file = folde* / "Report01.xls"
+        report_file = folder / "Report01.xls"
 
-        if repo*t_file.exists():
+        if report_file.exists():
 
-            repo*ts.append(
+            reports.append(
                 {
-     *              "sample_id": folder.*tem,
-                    "report_f*le": str(report_file)
-            *   }
+                    "sample_id": folder.stem,
+                    "report_file": str(report_file)
+                }
             )
 
-    reports.so*t(key=lambda x: x["sample_id"])
+    reports.sort(
+        key=lambda x: x["sample_id"]
+    )
 
- *  return reports
+    return reports
