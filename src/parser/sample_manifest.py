@@ -17,11 +17,11 @@ def create_manifest(root_folder):
 
         rows.append(
             {
-                "JOB": report[
+                "sample_id": report[
                     "sample_id"
                 ],
-                "Peso muestra [g]": None,
-                "Peso C23 ISTD [g]": None
+                "sample_weight_g": None,
+                "c23_solution_weight_g": None
             }
         )
 

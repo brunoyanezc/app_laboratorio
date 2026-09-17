@@ -128,17 +128,26 @@ def build_results(
 
     print()
     print("DATASET COLUMNS:")
-    print(dataset.columns.tolist())
+    for c in dataset.columns:
+        print(repr(c))
     print()
 
     # ----------------------------------
     # Masa C23 agregada
     # ----------------------------------
 
-    dataset["mass_c23_added_g"] = (
-        dataset["c23_solution_weight_g"]
-        * dataset["c23_concentration_g_g"]
+    print()
+    print("EXISTE c23_solution_weight_g?")
+    print(
+    "c23_solution_weight_g" in dataset.columns
     )
+
+    print(dataset.head())
+
+    dataset["mass_c23_added_g"] = (
+    dataset["c23_solution_weight_g"]
+    * dataset["c23_concentration_g_g"]
+)
 
     # ----------------------------------
     # Área C23 por muestra

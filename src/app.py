@@ -236,6 +236,13 @@ if uploaded_file:
             str(report_file)
         )
 
+        st.write(edited)
+        edited.to_csv(
+            "debug.csv",
+            index=False
+        )
+
+
         results = pipeline_result[
             "results"
         ]
