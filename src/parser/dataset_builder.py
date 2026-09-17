@@ -1,34 +1,34 @@
 import pandas as pd
 
-from*discover import discover_reports
-f*om report_reader import read_repor*
+from discover import discover_reports
+from report_reader import read_report
 
 
-def build_dataset(root_folder: *tr):
+def build_dataset(root_folder):
 
-    reports = discover_repor*s(root_folder)
+    reports = discover_reports(root_folder)
 
     all_rows = []
-*    for report in reports:
 
-      * sample_id = report["sample_id"]
+    for report in reports:
 
-*       result = read_report(
-     *      report["report_file"]
-      * )
+        sample_id = report["sample_id"]
 
-        df = result["data"]
+        result = read_report(
+            report["report_file"]
+        )
 
- *      df["sample_id"] = sample_id
-*        df["total_peak_response"] * result[
-            "total_peak_r*sponse"
-        ]
+        df = result["data"].copy()
 
-        all_row*.append(df)
+        df["sample_id"] = sample_id
 
-    dataset = pd.conc*t(
+        df["total_peak_response"] = (
+            result["total_peak_response"]
+        )
+
+        all_rows.append(df)
+
+    return pd.concat(
         all_rows,
-        ignor*_index=True
+        ignore_index=True
     )
-
-    return data*et
