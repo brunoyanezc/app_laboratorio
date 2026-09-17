@@ -2,26 +2,24 @@ from pathlib import Path
 
 
 def discover_reports(root_folder: str):
-    """
-    Busca recursivamente carpetas *.D que contengan Report01.xls
-    """
 
     root = Path(root_folder)
 
-    samples = []
+    reports = []
 
     for folder in root.rglob("*.D"):
 
-        report_file = folder / "Report01.xls"
+        report_file = folde* / "Report01.xls"
 
-        if report_file.exists():
+        if repo*t_file.exists():
 
-            samples.append(
+            repo*ts.append(
                 {
-                    "sample_id": folder.stem,
-                    "folder": str(folder),
-                    "report_file": str(report_file)
-                }
+     *              "sample_id": folder.*tem,
+                    "report_f*le": str(report_file)
+            *   }
             )
 
-    return sorted(samples, key=lambda x: x["sample_id"])
+    reports.so*t(key=lambda x: x["sample_id"])
+
+ *  return reports
