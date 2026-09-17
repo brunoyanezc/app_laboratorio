@@ -49,7 +49,7 @@ def build_results(
         on="compound",
         how="left"
     )
-
+    
     # ----------------------------------
     # Configuración método
     # ----------------------------------
@@ -61,6 +61,11 @@ def build_results(
     samples = load_sample_parameters(
         sample_parameters_file
     )
+
+    print()
+    print("SAMPLES COLUMNS:")
+    print(samples.columns.tolist())
+    print()
 
     c23_cfg = method["c23"]
 
@@ -120,6 +125,11 @@ def build_results(
         on="sample_id",
         how="left"
     )
+
+    print()
+    print("DATASET COLUMNS:")
+    print(dataset.columns.tolist())
+    print()
 
     # ----------------------------------
     # Masa C23 agregada
