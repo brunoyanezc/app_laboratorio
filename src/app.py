@@ -46,6 +46,18 @@ from config.profile_loader import (
     load_profile
 )
 
+from pipeline_nutri import (
+    run_nutri_pipeline
+)
+
+from reports.nutri_excel_export import (
+    export_nutri_excel
+)
+
+from reports.nutri_excel_export import (
+    export_nutri_excel
+)
+
 st.set_page_config(
     page_title="Planilla PAG [g/100g]",
     layout="wide"
@@ -169,6 +181,7 @@ if uploaded_file:
     edited = st.data_editor(
         manifest.rename(
             columns={
+                "order": "Orden",
                 "sample_id": "JOB",
                 "sample_weight_g": "Peso muestra [g]",
                 "c23_solution_weight_g": "Peso alícuota C23 [g]"
@@ -195,41 +208,24 @@ if uploaded_file:
             / "sample_parameters.csv"
         )
 
-
-
-        edited = edited.rename(
-            columns={
-                "JOB": "sample_id",
-                "Peso muestra [g]": "sample_weight_g",
-                "Peso alícuota C23 [g]":
-                "c23_solution_weight_g"
-            }
-        )
-
-        edited["Orden"] = (
-            edited["Orden"]
-            .astype(int)
-        )
-
-        edited = edited.sort_values(
-            "Orden"
-        ).reset_index(
-            drop=True
-        )
-
         edited = edited.rename(
             columns={
                 "Orden": "order",
                 "JOB": "sample_id",
-                "Peso muestra [g]":
-                "sample_weight_g",
-                "Peso alícuota C23 [g]":
-                "c23_solution_weight_g"
-            }
+                "Peso muestra [g]": "sample_weight_g",
+                "Peso alícuota C23 [g]": "c23_solution_weight_g"
+                }
+        )
+
+        edited["order"] = (
+            edited["order"]
+            .astype(int)
         )
 
         edited = edited.sort_values(
             "order"
+        ).reset_index(
+            drop=True
         )
 
         save_runtime_parameters(
@@ -256,42 +252,100 @@ if uploaded_file:
             / f"{Path(uploaded_file.name).stem}.xlsx"
         )
 
-        pipeline_result = run_pipeline(
-            temp_folder,
-            str(parameter_file),
-            str(method_file),
-            str(report_file),
-            profile_name
+        has_weights = (
+            edited["sample_weight_g"]
+            .astype(str)
+            .str.strip()
+            .ne("")
+            .all()
+            and
+            edited["c23_solution_weight_g"]
+            .astype(str)
+            .str.strip()
+            .ne("")
+            .all()
         )
 
-        results = pipeline_result[
-            "results"
-        ]
+        if has_weights:
 
-        pvgc2_report = pipeline_result[
-            "pvgc2_report"
-        ]
+            pipeline_result = run_pipeline(
+                temp_folder,
+                str(parameter_file),
+                str(method_file),
+                str(report_file),
+                profile_name
+            )
 
-        report_100g = pipeline_result[
-            "report_100g"
-        ]
+            results = pipeline_result[
+                "results"
+            ]
+
+            area_report = pipeline_result[
+                "area_report"
+            ]
+
+            report_100g = pipeline_result[
+                "report_100g"
+            ]
+
+            nutri_report = pipeline_result[
+                "nutri_report"
+            ]
+
+            st.subheader(
+                "AFOCR_AC_GRASOS_A"
+            )
+
+            st.data_editor(
+                area_report,
+                hide_index=True,
+                use_container_width=True
+            )
+
+            st.subheader(
+                "AFOCR_AC_GRASOS_100G"
+            )
+
+            st.data_editor(
+                report_100g,
+                hide_index=True,
+                use_container_width=True
+            )
+
+        else:
+
+            st.info(
+                "No se ingresaron pesos. "
+                "Se generará únicamente INS_PERFMIX37_NUTRI."
+            )
+
+            pipeline_result = run_nutri_pipeline(
+                temp_folder,
+                profile_name,
+                str(parameter_file),
+                str(method_file)
+            )
+
+            nutri_report = pipeline_result[
+                "nutri_report"
+            ]
+
+            report_file = (
+                Path(temp_folder)
+                / f"{Path(uploaded_file.name).stem}_NUTRI.xlsx"
+            )
+
+            export_nutri_excel(
+                nutri_report,
+                str(report_file)
+            )
 
         st.subheader(
-            "Vista previa %Area"
+            "INS_PERFMIX37_NUTRI"
         )
 
-        edited_area = st.data_editor(
-            pvgc2_report,
-            hide_index=True,
-            use_container_width=True
-        )
-
-        st.subheader(
-            "Vista previa g/100g"
-        )
-
-        edited_100g = st.data_editor(
-            report_100g,
+        st.data_editor(
+            nutri_report,
             hide_index=True,
             use_container_width=True
         )

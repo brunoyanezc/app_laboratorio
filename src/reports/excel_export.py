@@ -19,6 +19,10 @@ from reports.pvgc2_100g_report import (
     build_pvgc2_100g_report
 )
 
+from reports.pvgc2_nutri_report import (
+    build_pvgc2_nutri_report
+)
+
 def autofit_columns(ws):
 
     for column in ws.columns:
