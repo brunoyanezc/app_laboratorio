@@ -5,6 +5,7 @@ from calculations.build_results import (
 
 SAMPLE_ID = "CI26-00450-001"
 
+print("INICIANDO AUDITORIA")
 
 def main():
 

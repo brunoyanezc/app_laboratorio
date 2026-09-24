@@ -72,17 +72,6 @@ with st.sidebar.expander(
     expanded=False
 ):
 
-    density = st.number_input(
-        "Densidad",
-        value=float(
-            settings.get(
-                "density",
-                0.69663
-            )
-        ),
-        format="%.5f"
-    )
-
     purity = st.number_input(
         "Pureza",
         value=float(
@@ -115,17 +104,6 @@ with st.sidebar.expander(
         format="%.7f"
     )
 
-    c23_tag_factor = st.number_input(
-        "Factor TAG→FAME C23",
-        value=float(
-            settings.get(
-                "c23_tag_factor",
-                1.0037
-            )
-        ),
-        format="%.6f"
-    )
-
 st.sidebar.divider()
 st.sidebar.caption(
 "Versión 0.1.0"
@@ -139,11 +117,9 @@ if st.sidebar.button(
     save_settings(
     {
         "profile": profile_name,
-        "density": density,
         "purity": purity,
         "flask_volume_ml": flask_volume_ml,
-        "stock_mass_g": stock_mass_g,
-        "c23_tag_factor": c23_tag_factor
+        "stock_mass_g": stock_mass_g
     }
 )
 
@@ -191,16 +167,24 @@ if uploaded_file:
     )
 
     edited = st.data_editor(
-    manifest.rename(
-        columns={
-            "sample_id": "JOB",
-            "sample_weight_g": "Peso muestra [g]",
-            "c23_solution_weight_g": "Peso alícuota C23 [g]"
-        }
-    ),
-    use_container_width=True,
-    num_rows="fixed"
-)
+        manifest.rename(
+            columns={
+                "sample_id": "JOB",
+                "sample_weight_g": "Peso muestra [g]",
+                "c23_solution_weight_g": "Peso alícuota C23 [g]"
+            }
+        ),
+        column_config={
+            "Orden": st.column_config.NumberColumn(
+                "Orden",
+                min_value=1,
+                step=1
+            )
+        },
+        hide_index=True,
+        use_container_width=True,
+        num_rows="fixed"
+    )
 
     if st.button(
         "Procesar"
@@ -216,11 +200,36 @@ if uploaded_file:
         edited = edited.rename(
             columns={
                 "JOB": "sample_id",
-                "Peso muestra [g]":
-                    "sample_weight_g",
+                "Peso muestra [g]": "sample_weight_g",
                 "Peso alícuota C23 [g]":
-                    "c23_solution_weight_g"
+                "c23_solution_weight_g"
             }
+        )
+
+        edited["Orden"] = (
+            edited["Orden"]
+            .astype(int)
+        )
+
+        edited = edited.sort_values(
+            "Orden"
+        ).reset_index(
+            drop=True
+        )
+
+        edited = edited.rename(
+            columns={
+                "Orden": "order",
+                "JOB": "sample_id",
+                "Peso muestra [g]":
+                "sample_weight_g",
+                "Peso alícuota C23 [g]":
+                "c23_solution_weight_g"
+            }
+        )
+
+        edited = edited.sort_values(
+            "order"
         )
 
         save_runtime_parameters(
@@ -234,11 +243,11 @@ if uploaded_file:
         )
 
         create_runtime_method_file(
-            density=density,
+            density=profile["density"],
             purity=purity,
             flask_volume_ml=flask_volume_ml,
             stock_mass_g=stock_mass_g,
-            c23_tag_factor=c23_tag_factor,
+            c23_tag_factor=profile["c23_tag_factor"],
             filename=str(method_file)
         )
 
@@ -251,15 +260,9 @@ if uploaded_file:
             temp_folder,
             str(parameter_file),
             str(method_file),
-            str(report_file)
+            str(report_file),
+            profile_name
         )
-
-        st.write(edited)
-        edited.to_csv(
-            "debug.csv",
-            index=False
-        )
-
 
         results = pipeline_result[
             "results"
@@ -277,8 +280,9 @@ if uploaded_file:
             "Vista previa %Area"
         )
 
-        st.dataframe(
+        edited_area = st.data_editor(
             pvgc2_report,
+            hide_index=True,
             use_container_width=True
         )
 
@@ -286,8 +290,9 @@ if uploaded_file:
             "Vista previa g/100g"
         )
 
-        st.dataframe(
+        edited_100g = st.data_editor(
             report_100g,
+            hide_index=True,
             use_container_width=True
         )
 

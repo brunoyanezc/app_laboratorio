@@ -6,6 +6,8 @@ exclude_ni: false
 
 c23_tag_factor: 1.0037
 
+density: 0.69663
+
 report_order:
 
   - "C4:0"
@@ -59,4 +61,4 @@ report_order:
   - "C24:1"
   - "Unknow"
 
-aliases:
+aliases: {}

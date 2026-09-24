@@ -49,6 +49,7 @@ def build_results(
         on="compound",
         how="left"
     )
+
     
     # ----------------------------------
     # Configuración método
@@ -138,23 +139,9 @@ def build_results(
         how="left"
     )
 
-    print()
-    print("DATASET COLUMNS:")
-    for c in dataset.columns:
-        print(repr(c))
-    print()
-
     # ----------------------------------
     # Masa C23 agregada
     # ----------------------------------
-
-    print()
-    print("EXISTE c23_solution_weight_g?")
-    print(
-    "c23_solution_weight_g" in dataset.columns
-    )
-
-    print(dataset.head())
 
     dataset["mass_c23_added_g"] = (
     dataset["c23_solution_weight_g"]

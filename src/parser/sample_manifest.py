@@ -17,11 +17,10 @@ def create_manifest(root_folder):
 
         rows.append(
             {
-                "sample_id": report[
-                    "sample_id"
-                ],
-                "sample_weight_g": None,
-                "c23_solution_weight_g": None
+                "Orden": len(rows) + 1,
+                "sample_id": report["sample_id"],
+                "sample_weight_g": "",
+                "c23_solution_weight_g": ""
             }
         )
 

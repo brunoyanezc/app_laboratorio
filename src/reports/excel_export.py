@@ -72,7 +72,8 @@ def style_header_row(
 
 def export_excel(
     results_df,
-    filename="Reporte_GCFID.xlsx"
+    filename,
+    profile_name
 ):
 
     profile = load_profile(
@@ -84,15 +85,17 @@ def export_excel(
     ]
 
     pvgc2 = build_pvgc2_report(
-        results_df
-    )
+    results_df,
+    profile_name
+)
 
     summary = build_summary_report(
         results_df
     )
 
     report_100g = build_pvgc2_100g_report(
-    results_df
+    results_df,
+    profile_name
     )
 
     wb = Workbook()

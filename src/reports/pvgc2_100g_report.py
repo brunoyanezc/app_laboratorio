@@ -5,10 +5,13 @@ from config.profile_loader import (
 )
 
 
-def build_pvgc2_100g_report(results_df):
+def build_pvgc2_100g_report(
+    results_df,
+    profile_name
+):
 
     profile = load_profile(
-        "PVGC2"
+        profile_name
     )
 
     compounds = profile[
@@ -17,10 +20,16 @@ def build_pvgc2_100g_report(results_df):
 
     output_rows = []
 
-    for sample_id in sorted(
-        results_df["sample_id"].unique()
-    ):
+    sample_order = (
+        results_df[
+            ["sample_id", "order"]
+        ]
+        .drop_duplicates()
+        .sort_values("order")
+        )
 
+
+    for sample_id in sample_order["sample_id"]:
         sample = results_df.loc[
             results_df["sample_id"] == sample_id
         ]

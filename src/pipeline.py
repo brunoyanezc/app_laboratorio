@@ -19,7 +19,8 @@ def run_pipeline(
     data_folder,
     sample_parameters_file,
     method_file,
-    output_file
+    output_file,
+    profile_name
 ):
 
     results = build_results(
@@ -29,17 +30,20 @@ def run_pipeline(
     )
 
     pvgc2_report = build_pvgc2_report(
-        results
+        results,
+        profile_name
     )
 
     report_100g = build_pvgc2_100g_report(
-        results
+        results,
+        profile_name
     )
 
     export_excel(
-        results,
-        output_file
-    )
+    results,
+    output_file,
+    profile_name
+)
 
     return {
         "results": results,
