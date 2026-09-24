@@ -181,7 +181,6 @@ if uploaded_file:
     edited = st.data_editor(
         manifest.rename(
             columns={
-                "order": "Orden",
                 "sample_id": "JOB",
                 "sample_weight_g": "Peso muestra [g]",
                 "c23_solution_weight_g": "Peso alícuota C23 [g]"
