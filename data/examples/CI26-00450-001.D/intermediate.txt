@@ -1,0 +1,366 @@
+File Name: C:\Users\Public\Documents\ChemStation\2\Data\20260919PERFIL\2026 09 19 PERFIL 2026-09-19 12-10-31\CI26-00450-001.D
+Creation Date: 9/21/2026 1:31:45 PM
+Sample Name: CI26-00450-001
+Sample Description: 
+Method: perfil agilentH2 - Nutreco.M last changed 9/21/2026 1:31:19 PM
+
+Signal: FID1A
+     Time Type      Area    Height     Width     Start       End
+----------------------------------------------------------------
+    8.212 MM       4.610     3.849     0.020     8.190     8.231 
+   10.473 MM     100.943    55.098     0.031    10.417    10.540 
+   10.786 MM      20.283    10.046     0.034    10.740    10.842 
+   11.692 BB       9.861     4.510     0.035    11.610    11.776 
+   12.062 BB      11.048     4.844     0.036    11.990    12.150 
+   14.109 MM     987.619   216.687     0.076    13.934    14.149 
+   14.494 MM     103.210    35.971     0.048    14.411    14.554 
+   15.740 BB      10.831     3.566     0.048    15.653    15.843 
+   16.272 BB      13.457     3.373     0.062    16.117    16.370 
+   16.476 MF      12.742     4.153     0.051    16.373    16.553 
+   16.724 MM       8.805     2.573     0.057    16.694    16.804 
+   17.838 MF      19.683     5.904     0.056    17.740    17.899 
+   18.870 BB S   186.500    33.404     0.079    18.693    18.972 
+   19.317 MF    1420.842   212.839     0.111    19.015    19.354 
+   19.416 FM     108.256    35.978     0.050    19.354    19.487 
+   20.453 MF    1202.469   197.833     0.101    20.213    20.502 
+   20.895 MM       3.806     1.075     0.059    20.826    20.966 
+   21.084 MM       3.877     1.088     0.059    21.009    21.146 
+   21.630 MM       0.825     0.269     0.051    21.588    21.681 
+   22.075 MM     348.843    81.590     0.071    21.921    22.150 
+   22.829 MM      32.492     8.460     0.064    22.737    22.912 
+   24.282 MM      25.161     5.879     0.071    24.166    24.380 
+   24.526 MF       6.270     1.519     0.069    24.414    24.573 
+   24.659 FM      46.363    11.046     0.070    24.573    24.765 
+   25.911 MM       5.610     1.318     0.071    25.836    25.993 
+   26.581 MM       5.401     1.276     0.071    26.485    26.666 
+   27.126 MM      76.480    15.644     0.081    27.004    27.237 
+   27.690 BB       6.191     1.258     0.072    27.507    27.890 
+   28.396 HB      29.299     6.806     0.068    28.303    28.543 
+   29.003 MF     229.515    52.407     0.073    28.867    29.134 
+   29.947 MF      16.142     3.416     0.079    29.863    30.053 
+   30.161 FM      11.466     2.323     0.082    30.053    30.247 
+   30.341 MM       5.857     1.411     0.069    30.247    30.417 
+   32.009 BB       5.330     1.282     0.066    31.920    32.093 
+   32.857 BB     349.067    56.699     0.089    32.580    32.983 
+   33.688 MF     203.542    44.592     0.076    33.540    33.783 
+   34.702 FM      37.224     8.132     0.076    34.605    34.877 
+   35.633 MM    1714.930   222.427     0.129    35.330    35.698 
+   35.915 MM       7.037     1.693     0.069    35.830    35.989 
+   42.728 BB      57.850     2.944     0.237    42.250    43.247 
+
+
+   RetTime       Type CalibPeakType                       Signalname          Area%  Compound
+---------------------------------------------------------------------------------------------------------
+     8.212   Expected          Main                            FID1A     0.062 ng/ul C12:0
+    10.473   Expected          Main                            FID1A     1.355 ng/ul C14:0
+    10.786    Unknown       NewMain                            FID1A         0.272 ng/ul 
+    11.692    Unknown       NewMain                            FID1A         0.132 ng/ul 
+    12.062   Expected          Main                            FID1A     0.148 ng/ul C15:0
+    14.109   Expected          Main                            FID1A    13.257 ng/ul C16:0
+    14.494   Expected          Main                            FID1A     1.385 ng/ul C16:1
+    15.740   Expected          Main                            FID1A     0.145 ng/ul C16:2n4
+    16.272   Expected          Main                            FID1A     0.181 ng/ul C17:0
+    16.476   Expected          Main                            FID1A     0.171 ng/ul C16:3n4
+    16.724   Expected          Main                            FID1A     0.118 ng/ul C17:1
+    17.838   Expected          Main                            FID1A     0.264 ng/ul C16:4n1
+    18.870   Expected          Main                            FID1A     2.503 ng/ul C18:0
+    19.317    Unknown       NewMain                            FID1A        19.072 ng/ul 
+    19.416   Expected          Main                            FID1A     1.453 ng/ul C18:1n9
+    20.453    Unknown       NewMain                            FID1A        16.141 ng/ul 
+    20.895    Unknown       NewMain                            FID1A         0.051 ng/ul 
+    21.084   Expected          Main                            FID1A     0.052 ng/ul C18:2n4
+    21.630   Expected          Main                            FID1A     0.011 ng/ul C18:3n4
+    22.075   Expected          Main                            FID1A     4.683 ng/ul C18:3n3
+    22.829   Expected          Main                            FID1A     0.436 ng/ul C18:4n3
+    24.282   Expected          Main                            FID1A     0.338 ng/ul C20:0
+    24.526   Expected          Main                            FID1A     0.084 ng/ul C20:1n11+
+    24.659   Expected          Main                            FID1A     0.622 ng/ul C20:1n9
+    25.911   Expected          Main                            FID1A     0.075 ng/ul C20:2n6
+    26.581   Expected          Main                            FID1A     0.073 ng/ul C20:3n6
+    27.126   Expected          Main                            FID1A     1.027 ng/ul C20:4n6
+    27.690   Expected          Main                            FID1A     0.083 ng/ul C20:3n3
+    28.396   Expected          Main                            FID1A     0.393 ng/ul C20:4n3
+    29.003   Expected          Main                            FID1A     3.081 ng/ul C20:5n3
+    29.947   Expected          Main                            FID1A     0.217 ng/ul C22:0
+    30.161    Unknown       NewMain                            FID1A         0.154 ng/ul 
+    30.341   Expected          Main                            FID1A     0.079 ng/ul C22:1n9
+    32.009   Expected          Main                            FID1A     0.072 ng/ul C21:5n3
+    32.857   Expected          Main                            FID1A     4.686 ng/ul C23:0
+    33.688    Unknown       NewMain                            FID1A         2.732 ng/ul 
+    34.702   Expected          Main                            FID1A     0.500 ng/ul C22:5n3
+    35.633   Expected          Main                            FID1A    23.020 ng/ul C22:6n3
+    35.915   Expected          Main                            FID1A     0.094 ng/ul C24:1
+    42.728    Unknown       NewMain                            FID1A         0.777 ng/ul 
+
+-------------------------------------------------------------------------------------------------------------
+
+File Name: C:\Users\Public\Documents\ChemStation\2\Data\20260919PERFIL\2026 09 19 PERFIL 2026-09-19 12-10-31\CI26-00450-001.D
+Creation Date: 9/21/2026 1:49:06 PM
+Sample Name: CI26-00450-001
+Sample Description: 
+Method: perfil agilentH2 - Nutreco.M last changed 9/21/2026 1:31:19 PM
+
+Signal: FID1A
+     Time Type      Area    Height     Width     Start       End
+----------------------------------------------------------------
+    8.212 MM       4.610     3.849     0.020     8.190     8.231 
+   10.473 MM     100.943    55.098     0.031    10.417    10.540 
+   12.062 BB      11.048     4.844     0.036    11.990    12.150 
+   14.109 MM     987.619   216.687     0.076    13.934    14.149 
+   14.494 MM     103.210    35.971     0.048    14.411    14.554 
+   15.740 BB      10.831     3.566     0.048    15.653    15.843 
+   16.272 BB      13.457     3.373     0.062    16.117    16.370 
+   16.476 MF      12.742     4.153     0.051    16.373    16.553 
+   16.724 MM       8.805     2.573     0.057    16.694    16.804 
+   17.838 MF      19.683     5.904     0.056    17.740    17.899 
+   18.870 BB S   186.500    33.404     0.079    18.693    18.972 
+   19.317 MF    1420.842   212.839     0.111    19.015    19.354 
+   19.416 FM     108.256    35.978     0.050    19.354    19.487 
+   20.453 MF    1202.469   197.833     0.101    20.213    20.502 
+   20.895 MM       3.806     1.075     0.059    20.826    20.966 
+   21.084 MM       3.877     1.088     0.059    21.009    21.146 
+   21.630 MM       0.825     0.269     0.051    21.588    21.681 
+   22.075 MM     348.843    81.590     0.071    21.921    22.150 
+   22.829 MM      32.492     8.460     0.064    22.737    22.912 
+   24.282 MM      25.161     5.879     0.071    24.166    24.380 
+   24.526 MF       6.270     1.519     0.069    24.414    24.573 
+   24.659 FM      46.363    11.046     0.070    24.573    24.765 
+   25.911 MM       5.610     1.318     0.071    25.836    25.993 
+   26.581 MM       5.401     1.276     0.071    26.485    26.666 
+   27.126 MM      76.480    15.644     0.081    27.004    27.237 
+   27.690 BB       6.191     1.258     0.072    27.507    27.890 
+   28.396 HB      29.299     6.806     0.068    28.303    28.543 
+   29.003 MF     229.515    52.407     0.073    28.867    29.134 
+   29.947 MF      16.142     3.416     0.079    29.863    30.053 
+   30.161 FM      11.466     2.323     0.082    30.053    30.247 
+   30.341 MM       5.857     1.411     0.069    30.247    30.417 
+   32.009 BB       5.330     1.282     0.066    31.920    32.093 
+   32.857 BB     349.067    56.699     0.089    32.580    32.983 
+   33.688 MF     203.542    44.592     0.076    33.540    33.783 
+   34.702 FM      37.224     8.132     0.076    34.605    34.877 
+   35.633 MM    1714.930   222.427     0.129    35.330    35.698 
+   35.915 MM       7.037     1.693     0.069    35.830    35.989 
+
+
+   RetTime       Type CalibPeakType                       Signalname          Area%  Compound
+---------------------------------------------------------------------------------------------------------
+     8.212   Expected          Main                            FID1A     0.063 ng/ul C12:0
+    10.473   Expected          Main                            FID1A     1.371 ng/ul C14:0
+    12.062   Expected          Main                            FID1A     0.150 ng/ul C15:0
+    14.109   Expected          Main                            FID1A    13.416 ng/ul C16:0
+    14.494   Expected          Main                            FID1A     1.402 ng/ul C16:1
+    15.740   Expected          Main                            FID1A     0.147 ng/ul C16:2n4
+    16.272   Expected          Main                            FID1A     0.183 ng/ul C17:0
+    16.476   Expected          Main                            FID1A     0.173 ng/ul C16:3n4
+    16.724   Expected          Main                            FID1A     0.120 ng/ul C17:1
+    17.838   Expected          Main                            FID1A     0.267 ng/ul C16:4n1
+    18.870   Expected          Main                            FID1A     2.533 ng/ul C18:0
+    19.317    Unknown       NewMain                            FID1A        19.300 ng/ul 
+    19.416   Expected          Main                            FID1A     1.471 ng/ul C18:1n9
+    20.453    Unknown       NewMain                            FID1A        16.334 ng/ul 
+    20.895    Unknown       NewMain                            FID1A         0.052 ng/ul 
+    21.084   Expected          Main                            FID1A     0.053 ng/ul C18:2n4
+    21.630   Expected          Main                            FID1A     0.011 ng/ul C18:3n4
+    22.075   Expected          Main                            FID1A     4.739 ng/ul C18:3n3
+    22.829   Expected          Main                            FID1A     0.441 ng/ul C18:4n3
+    24.282   Expected          Main                            FID1A     0.342 ng/ul C20:0
+    24.526   Expected          Main                            FID1A     0.085 ng/ul C20:1n11+
+    24.659   Expected          Main                            FID1A     0.630 ng/ul C20:1n9
+    25.911   Expected          Main                            FID1A     0.076 ng/ul C20:2n6
+    26.581   Expected          Main                            FID1A     0.073 ng/ul C20:3n6
+    27.126   Expected          Main                            FID1A     1.039 ng/ul C20:4n6
+    27.690   Expected          Main                            FID1A     0.084 ng/ul C20:3n3
+    28.396   Expected          Main                            FID1A     0.398 ng/ul C20:4n3
+    29.003   Expected          Main                            FID1A     3.118 ng/ul C20:5n3
+    29.947   Expected          Main                            FID1A     0.219 ng/ul C22:0
+    30.161    Unknown       NewMain                            FID1A         0.156 ng/ul 
+    30.341   Expected          Main                            FID1A     0.080 ng/ul C22:1n9
+    32.009   Expected          Main                            FID1A     0.072 ng/ul C21:5n3
+    32.857   Expected          Main                            FID1A     4.742 ng/ul C23:0
+    33.688    Unknown       NewMain                            FID1A         2.765 ng/ul 
+    34.702   Expected          Main                            FID1A     0.506 ng/ul C22:5n3
+    35.633   Expected          Main                            FID1A    23.295 ng/ul C22:6n3
+    35.915   Expected          Main                            FID1A     0.096 ng/ul C24:1
+
+-------------------------------------------------------------------------------------------------------------
+
+File Name: C:\Users\Public\Documents\ChemStation\2\Data\20260919PERFIL\2026 09 19 PERFIL 2026-09-19 12-10-31\CI26-00450-001.D
+Creation Date: 9/21/2026 1:49:56 PM
+Sample Name: CI26-00450-001
+Sample Description: 
+Method: perfil agilentH2 - Nutreco.M last changed 9/21/2026 1:49:49 PM
+
+Signal: FID1A
+     Time Type      Area    Height     Width     Start       End
+----------------------------------------------------------------
+    8.212 MM       4.610     3.849     0.020     8.190     8.231 
+   10.473 MM     100.943    55.098     0.031    10.417    10.540 
+   12.062 BB      11.048     4.844     0.036    11.990    12.150 
+   14.109 MM     987.619   216.687     0.076    13.934    14.149 
+   14.494 MM     103.210    35.971     0.048    14.411    14.554 
+   15.740 BB      10.831     3.566     0.048    15.653    15.843 
+   16.272 BB      13.457     3.373     0.062    16.117    16.370 
+   16.476 MF      12.742     4.153     0.051    16.373    16.553 
+   16.724 MM       8.805     2.573     0.057    16.694    16.804 
+   17.838 MF      19.683     5.904     0.056    17.740    17.899 
+   18.870 BB S   186.500    33.404     0.079    18.693    18.972 
+   19.317 MF    1420.842   212.839     0.111    19.015    19.354 
+   19.416 FM     108.256    35.978     0.050    19.354    19.487 
+   20.453 MF    1202.469   197.833     0.101    20.213    20.502 
+   20.895 MM       3.806     1.075     0.059    20.826    20.966 
+   21.084 MM       3.877     1.088     0.059    21.009    21.146 
+   21.630 MM       0.825     0.269     0.051    21.588    21.681 
+   22.075 MM     348.843    81.590     0.071    21.921    22.150 
+   22.829 MM      32.492     8.460     0.064    22.737    22.912 
+   24.282 MM      25.161     5.879     0.071    24.166    24.380 
+   24.526 MF       6.270     1.519     0.069    24.414    24.573 
+   24.659 FM      46.363    11.046     0.070    24.573    24.765 
+   25.911 MM       5.610     1.318     0.071    25.836    25.993 
+   26.581 MM       5.401     1.276     0.071    26.485    26.666 
+   27.126 MM      76.480    15.644     0.081    27.004    27.237 
+   27.690 BB       6.191     1.258     0.072    27.507    27.890 
+   28.396 HB      29.299     6.806     0.068    28.303    28.543 
+   29.003 MF     229.515    52.407     0.073    28.867    29.134 
+   29.947 MF      16.142     3.416     0.079    29.863    30.053 
+   30.161 FM      11.466     2.323     0.082    30.053    30.247 
+   30.341 MM       5.857     1.411     0.069    30.247    30.417 
+   32.009 BB       5.330     1.282     0.066    31.920    32.093 
+   32.857 BB     349.067    56.699     0.089    32.580    32.983 
+   33.688 MF     203.542    44.592     0.076    33.540    33.783 
+   34.702 FM      37.224     8.132     0.076    34.605    34.877 
+   35.633 MM    1714.930   222.427     0.129    35.330    35.698 
+   35.915 MM       7.037     1.693     0.069    35.830    35.989 
+
+
+   RetTime       Type CalibPeakType                       Signalname          Area%  Compound
+---------------------------------------------------------------------------------------------------------
+     8.212   Expected          Main                            FID1A     0.063 ng/ul C12:0
+    10.473   Expected          Main                            FID1A     1.371 ng/ul C14:0
+    12.062   Expected          Main                            FID1A     0.150 ng/ul C15:0
+    14.109   Expected          Main                            FID1A    13.416 ng/ul C16:0
+    14.494   Expected          Main                            FID1A     1.402 ng/ul C16:1
+    15.740   Expected          Main                            FID1A     0.147 ng/ul C16:2n4
+    16.272   Expected          Main                            FID1A     0.183 ng/ul C17:0
+    16.476   Expected          Main                            FID1A     0.173 ng/ul C16:3n4
+    16.724   Expected          Main                            FID1A     0.120 ng/ul C17:1
+    17.838   Expected          Main                            FID1A     0.267 ng/ul C16:4n1
+    18.870   Expected          Main                            FID1A     2.533 ng/ul C18:0
+    19.317   Expected          Main                            FID1A    19.300 ng/ul C18:1n9
+    19.416   Expected          Main                            FID1A     1.471 ng/ul C18:1n7
+    20.453   Expected          Main                            FID1A    16.334 ng/ul C18:2n6
+    20.895    Unknown       NewMain                            FID1A         0.052 ng/ul 
+    21.084   Expected          Main                            FID1A     0.053 ng/ul C18:2n4
+    21.630   Expected          Main                            FID1A     0.011 ng/ul C18:3n4
+    22.075   Expected          Main                            FID1A     4.739 ng/ul C18:3n3
+    22.829   Expected          Main                            FID1A     0.441 ng/ul C18:4n3
+    24.282   Expected          Main                            FID1A     0.342 ng/ul C20:0
+    24.526   Expected          Main                            FID1A     0.085 ng/ul C20:1n11+
+    24.659   Expected          Main                            FID1A     0.630 ng/ul C20:1n9
+    25.911   Expected          Main                            FID1A     0.076 ng/ul C20:2n6
+    26.581   Expected          Main                            FID1A     0.073 ng/ul C20:3n6
+    27.126   Expected          Main                            FID1A     1.039 ng/ul C20:4n6
+    27.690   Expected          Main                            FID1A     0.084 ng/ul C20:3n3
+    28.396   Expected          Main                            FID1A     0.398 ng/ul C20:4n3
+    29.003   Expected          Main                            FID1A     3.118 ng/ul C20:5n3
+    29.947   Expected          Main                            FID1A     0.219 ng/ul C22:0
+    30.161    Unknown       NewMain                            FID1A         0.156 ng/ul 
+    30.341   Expected          Main                            FID1A     0.080 ng/ul C22:1n9
+    32.009   Expected          Main                            FID1A     0.072 ng/ul C21:5n3
+    32.857   Expected          Main                            FID1A     4.742 ng/ul C23:0
+    33.688    Unknown       NewMain                            FID1A         2.765 ng/ul 
+    34.702   Expected          Main                            FID1A     0.506 ng/ul C22:5n3
+    35.633   Expected          Main                            FID1A    23.295 ng/ul C22:6n3
+    35.915   Expected          Main                            FID1A     0.096 ng/ul C24:1
+
+-------------------------------------------------------------------------------------------------------------
+
+File Name: C:\Users\Public\Documents\ChemStation\2\Data\20260919PERFIL\2026 09 19 PERFIL 2026-09-19 12-10-31\CI26-00450-001.D
+Creation Date: 9/21/2026 1:50:40 PM
+Sample Name: CI26-00450-001
+Sample Description: 
+Method: perfil agilentH2 - Nutreco.M last changed 9/21/2026 1:50:34 PM
+
+Signal: FID1A
+     Time Type      Area    Height     Width     Start       End
+----------------------------------------------------------------
+    8.212 MM       4.610     3.849     0.020     8.190     8.231 
+   10.473 MM     100.943    55.098     0.031    10.417    10.540 
+   12.062 BB      11.048     4.844     0.036    11.990    12.150 
+   14.109 MM     987.619   216.687     0.076    13.934    14.149 
+   14.494 MM     103.210    35.971     0.048    14.411    14.554 
+   15.740 BB      10.831     3.566     0.048    15.653    15.843 
+   16.272 BB      13.457     3.373     0.062    16.117    16.370 
+   16.476 MF      12.742     4.153     0.051    16.373    16.553 
+   16.724 MM       8.805     2.573     0.057    16.694    16.804 
+   17.838 MF      19.683     5.904     0.056    17.740    17.899 
+   18.870 BB S   186.500    33.404     0.079    18.693    18.972 
+   19.317 MF    1420.842   212.839     0.111    19.015    19.354 
+   19.416 FM     108.256    35.978     0.050    19.354    19.487 
+   20.453 MF    1202.469   197.833     0.101    20.213    20.502 
+   20.895 MM       3.806     1.075     0.059    20.826    20.966 
+   21.084 MM       3.877     1.088     0.059    21.009    21.146 
+   21.630 MM       0.825     0.269     0.051    21.588    21.681 
+   22.075 MM     348.843    81.590     0.071    21.921    22.150 
+   22.829 MM      32.492     8.460     0.064    22.737    22.912 
+   24.282 MM      25.161     5.879     0.071    24.166    24.380 
+   24.526 MF       6.270     1.519     0.069    24.414    24.573 
+   24.659 FM      46.363    11.046     0.070    24.573    24.765 
+   25.911 MM       5.610     1.318     0.071    25.836    25.993 
+   26.581 MM       5.401     1.276     0.071    26.485    26.666 
+   27.126 MM      76.480    15.644     0.081    27.004    27.237 
+   27.690 BB       6.191     1.258     0.072    27.507    27.890 
+   28.396 HB      29.299     6.806     0.068    28.303    28.543 
+   29.003 MF     229.515    52.407     0.073    28.867    29.134 
+   29.947 MF      16.142     3.416     0.079    29.863    30.053 
+   30.161 FM      11.466     2.323     0.082    30.053    30.247 
+   30.341 MM       5.857     1.411     0.069    30.247    30.417 
+   32.009 BB       5.330     1.282     0.066    31.920    32.093 
+   32.857 BB     349.067    56.699     0.089    32.580    32.983 
+   33.688 MF     203.542    44.592     0.076    33.540    33.783 
+   34.702 FM      37.224     8.132     0.076    34.605    34.877 
+   35.633 MM    1714.930   222.427     0.129    35.330    35.698 
+   35.915 MM       7.037     1.693     0.069    35.830    35.989 
+
+
+   RetTime       Type CalibPeakType                       Signalname          Area%  Compound
+---------------------------------------------------------------------------------------------------------
+     8.212   Expected          Main                            FID1A     0.063 ng/ul C12:0
+    10.473   Expected          Main                            FID1A     1.371 ng/ul C14:0
+    12.062   Expected          Main                            FID1A     0.150 ng/ul C15:0
+    14.109   Expected          Main                            FID1A    13.416 ng/ul C16:0
+    14.494   Expected          Main                            FID1A     1.402 ng/ul C16:1
+    15.740   Expected          Main                            FID1A     0.147 ng/ul C16:2n4
+    16.272   Expected          Main                            FID1A     0.183 ng/ul C17:0
+    16.476   Expected          Main                            FID1A     0.173 ng/ul C16:3n4
+    16.724   Expected          Main                            FID1A     0.120 ng/ul C17:1
+    17.838   Expected          Main                            FID1A     0.267 ng/ul C16:4n1
+    18.870   Expected          Main                            FID1A     2.533 ng/ul C18:0
+    19.317   Expected          Main                            FID1A    19.300 ng/ul C18:1n9
+    19.416   Expected          Main                            FID1A     1.471 ng/ul C18:1n7
+    20.453   Expected          Main                            FID1A    16.334 ng/ul C18:2n6
+    20.895   Expected          Main                            FID1A     0.052 ng/ul C18:2n4
+    21.084   Expected          Main                            FID1A     0.053 ng/ul C18:3n6
+    21.630   Expected          Main                            FID1A     0.011 ng/ul C18:3n4
+    22.075   Expected          Main                            FID1A     4.739 ng/ul C18:3n3
+    22.829   Expected          Main                            FID1A     0.441 ng/ul C18:4n3
+    24.282   Expected          Main                            FID1A     0.342 ng/ul C20:0
+    24.526   Expected          Main                            FID1A     0.085 ng/ul C20:1n11+
+    24.659   Expected          Main                            FID1A     0.630 ng/ul C20:1n9
+    25.911   Expected          Main                            FID1A     0.076 ng/ul C20:2n6
+    26.581   Expected          Main                            FID1A     0.073 ng/ul C20:3n6
+    27.126   Expected          Main                            FID1A     1.039 ng/ul C20:4n6
+    27.690   Expected          Main                            FID1A     0.084 ng/ul C20:3n3
+    28.396   Expected          Main                            FID1A     0.398 ng/ul C20:4n3
+    29.003   Expected          Main                            FID1A     3.118 ng/ul C20:5n3
+    29.947   Expected          Main                            FID1A     0.219 ng/ul C22:0
+    30.161    Unknown       NewMain                            FID1A         0.156 ng/ul 
+    30.341   Expected          Main                            FID1A     0.080 ng/ul C22:1n9
+    32.009   Expected          Main                            FID1A     0.072 ng/ul C21:5n3
+    32.857   Expected          Main                            FID1A     4.742 ng/ul C23:0
+    33.688    Unknown       NewMain                            FID1A         2.765 ng/ul 
+    34.702   Expected          Main                            FID1A     0.506 ng/ul C22:5n3
+    35.633   Expected          Main                            FID1A    23.295 ng/ul C22:6n3
+    35.915   Expected          Main                            FID1A     0.096 ng/ul C24:1
+
+-------------------------------------------------------------------------------------------------------------
+

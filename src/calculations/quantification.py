@@ -3,12 +3,14 @@ def calculate_wfamex(
     area_c23,
     mass_c23_added,
     tcf,
+    c23_tag_factor,
 ):
     return (
         area_x
         / area_c23
         * mass_c23_added
         * tcf
+        * c23_tag_factor
     )
 
 

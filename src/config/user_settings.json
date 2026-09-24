@@ -1,7 +1,8 @@
 {
     "profile": "PVGC2",
-    "density": 0.72002,
-    "purity": 0.9931,
+    "density": 0.69663,
+    "purity": 0.99,
     "flask_volume_ml": 10.0,
-    "stock_mass_g": 0.0960144
+    "stock_mass_g": 0.12,
+    "c23_tag_factor": 0.75
 }

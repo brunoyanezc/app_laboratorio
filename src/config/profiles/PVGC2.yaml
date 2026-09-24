@@ -4,6 +4,8 @@ exclude_internal_standard: true
 
 exclude_ni: false
 
+c23_tag_factor: 1.0037
+
 report_order:
 
   - "C4:0"
@@ -36,7 +38,7 @@ report_order:
   - "C18:3n3"
   - "C18:4n3"
   - "C20:0"
-  - "C20:1n11"
+  - "C20:1n11+"
   - "C20:1n9"
   - "C20:2n6"
   - "C20:3n6"
@@ -54,7 +56,7 @@ report_order:
   - "C22:5n3"
   - "C24:0"
   - "C22:6n3"
-  - "C24:1n9"
+  - "C24:1"
   - "Unknow"
 
-aliases: {}
+aliases:

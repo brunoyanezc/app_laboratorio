@@ -6,6 +6,7 @@ def create_runtime_method_file(
     purity,
     flask_volume_ml,
     stock_mass_g,
+    c23_tag_factor,
     filename
 ):
 
@@ -14,7 +15,8 @@ def create_runtime_method_file(
             "density": density,
             "purity": purity,
             "flask_volume_ml": flask_volume_ml,
-            "stock_mass_g": stock_mass_g
+            "stock_mass_g": stock_mass_g,
+            "c23_tag_factor": c23_tag_factor
         },
         "fame": {
             "exclude_internal_standard": True,

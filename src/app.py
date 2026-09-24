@@ -67,68 +67,85 @@ profile = load_profile(
     profile_name
 )
 
+with st.sidebar.expander(
+    "⚙ Opciones Avanzadas",
+    expanded=False
+):
+
+    density = st.number_input(
+        "Densidad",
+        value=float(
+            settings.get(
+                "density",
+                0.69663
+            )
+        ),
+        format="%.5f"
+    )
+
+    purity = st.number_input(
+        "Pureza",
+        value=float(
+            settings.get(
+                "purity",
+                0.99
+            )
+        ),
+        format="%.5f"
+    )
+
+    flask_volume_ml = st.number_input(
+        "Aforo (mL)",
+        value=float(
+            settings.get(
+                "flask_volume_ml",
+                10
+            )
+        )
+    )
+
+    stock_mass_g = st.number_input(
+        "Peso C23 (g)",
+        value=float(
+            settings.get(
+                "stock_mass_g",
+                0.1035
+            )
+        ),
+        format="%.7f"
+    )
+
+    c23_tag_factor = st.number_input(
+        "Factor TAG→FAME C23",
+        value=float(
+            settings.get(
+                "c23_tag_factor",
+                1.0037
+            )
+        ),
+        format="%.6f"
+    )
+
 st.sidebar.divider()
 st.sidebar.caption(
 "Versión 0.1.0"
 )
 st.sidebar.markdown("---")
 
-density = st.sidebar.number_input(
-    "Densidad (g/mL)",
-    value=float(
-        settings.get(
-            "density",
-            0.69663
-        )
-    ),
-    format="%.5f"
-)
-
-purity = st.sidebar.number_input(
-    "Pureza (%)",
-    value=float(
-        settings.get(
-            "purity",
-            0.99
-        )
-    ),
-    format="%.4f"
-)
-
-flask_volume_ml = st.sidebar.number_input(
-    "Aforo (mL)",
-    value=float(
-        settings.get(
-            "flask_volume_ml",
-            10
-        )
-    )
-)
-
-stock_mass_g = st.sidebar.number_input(
-    "Masa C23 pesada (g)",
-    value=float(
-        settings.get(
-            "stock_mass_g",
-            0.0960144
-        )
-    ),
-    format="%.5f"
-)
-
 if st.sidebar.button(
     "Guardar configuración"
 ):
 
     save_settings(
-        {
-            "profile": "PVGC2",
-            "density": density,
-            "purity": purity,
-            "flask_volume_ml": flask_volume_ml,
-            "stock_mass_g": stock_mass_g
-        }
-    )
+    {
+        "profile": profile_name,
+        "density": density,
+        "purity": purity,
+        "flask_volume_ml": flask_volume_ml,
+        "stock_mass_g": stock_mass_g,
+        "c23_tag_factor": c23_tag_factor
+    }
+)
 
     st.sidebar.success(
         "Configuración guardada"
@@ -221,6 +238,7 @@ if uploaded_file:
             purity=purity,
             flask_volume_ml=flask_volume_ml,
             stock_mass_g=stock_mass_g,
+            c23_tag_factor=c23_tag_factor,
             filename=str(method_file)
         )
 

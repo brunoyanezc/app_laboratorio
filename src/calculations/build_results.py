@@ -69,6 +69,18 @@ def build_results(
 
     c23_cfg = method["c23"]
 
+    from config.profile_loader import (
+    load_profile
+    )
+
+    profile = load_profile(
+    "PVGC2"
+    )
+
+    c23_tag_factor = profile.get(
+        "c23_tag_factor",
+        1.0
+    )
     # ----------------------------------
     # Concentración C23
     # ----------------------------------
@@ -176,14 +188,15 @@ def build_results(
     # ----------------------------------
 
     dataset["wfamex"] = dataset.apply(
-        lambda r: calculate_wfamex(
-            area_x=r["area"],
-            area_c23=r["area_c23"],
-            mass_c23_added=r["mass_c23_added_g"],
-            tcf=r["tcf"],
-        ),
-        axis=1
-    )
+    lambda r: calculate_wfamex(
+        area_x=r["area"],
+        area_c23=r["area_c23"],
+        mass_c23_added=r["mass_c23_added_g"],
+        tcf=r["tcf"],
+        c23_tag_factor=c23_tag_factor,
+    ),
+    axis=1
+)
 
     # ----------------------------------
     # Wx
@@ -211,7 +224,17 @@ def build_results(
 
     # ----------------------------------
     # %FAME
-    # Excluye C23 del denominador
+    # Base Excel:
+    #
+    # At sin NI = suma áreas identificadas
+    #             incluyendo C23
+    #
+    # %AG       = suma ppm identificados
+    #
+    # At con NI = 100 * At sin NI / %AG
+    #
+    # Denominador %Area reportado =
+    # At con NI - Área C23
     # ----------------------------------
 
     dataset["fame_denominator"] = None
@@ -227,11 +250,68 @@ def build_results(
             sample_mask
         ]
 
-        denominator = (
+        c23_area = (
             sample_df.loc[
-                sample_df["compound"] != "C23:0",
+                sample_df["compound"] == "C23:0",
                 "area"
             ].sum()
+        )
+
+        # -----------------------------
+        # At sin NI
+        # Incluye C23
+        # -----------------------------
+
+
+        at_sin_ni = (
+            sample_df["area"].sum()
+        )
+
+        # -----------------------------
+        # %AG
+        # Suma %Area GC identificados
+        # -----------------------------
+
+        percent_ag = (
+            sample_df["ppm"].sum()
+        )
+
+        # -----------------------------
+        # At con NI
+        # -----------------------------
+
+        at_con_ni = (
+            100
+            * at_sin_ni
+            / percent_ag
+        )
+
+        # -----------------------------
+        # Área NI
+        # -----------------------------
+
+        unknown_area = (
+            at_con_ni
+            - at_sin_ni
+        )
+
+        # -----------------------------
+        # % NI
+        # -----------------------------
+
+        unknown_percent = (
+            100
+            - percent_ag
+        )
+
+        # -----------------------------
+        # Denominador reportado
+        # Excluye C23
+        # -----------------------------
+
+        denominator = (
+            at_con_ni
+            - c23_area
         )
 
         dataset.loc[
@@ -251,12 +331,41 @@ def build_results(
             * 100
         )
 
+        # C23 siempre reporta 0 %
+
         dataset.loc[
             sample_mask
             &
             (dataset["compound"] == "C23:0"),
             "fame_percent"
         ] = 0
+
+        # Si la fila Unknow ya existe
+
+        dataset.loc[
+            sample_mask
+            &
+            (
+                dataset["compound"]
+                .astype(str)
+                .str.lower()
+                == "unknow"
+            ),
+            "area"
+        ] = unknown_area
+
+
+        dataset.loc[
+            sample_mask
+            &
+            (
+                dataset["compound"]
+                .astype(str)
+                .str.lower()
+                == "unknow"
+            ),
+            "fame_percent"
+        ] = unknown_percent
 
     # ----------------------------------
     # Flags
@@ -277,6 +386,78 @@ def build_results(
                 "-"
             ]
         )
+    )
+
+    unknown_rows = []
+
+    for sample_id in dataset["sample_id"].unique():
+
+        sample_df = dataset.loc[
+            dataset["sample_id"] == sample_id
+        ]
+
+        c23_area = (
+            sample_df.loc[
+                sample_df["compound"] == "C23:0",
+                "area"
+            ].sum()
+        )
+
+        at_sin_ni = (
+            sample_df["area"].sum()
+        )
+
+        percent_ag = (
+            sample_df["ppm"].sum()
+        )
+
+        at_con_ni = (
+            100
+            * at_sin_ni
+            / percent_ag
+        )
+
+        unknown_area = (
+            at_con_ni
+            - at_sin_ni
+        )
+
+        unknown_percent = (
+            100
+            - percent_ag
+        )
+
+        template = (
+            sample_df.iloc[0]
+            .copy()
+        )
+
+        template["compound"] = "Unknow"
+
+        template["area"] = unknown_area
+
+        template["fame_percent"] = (
+            unknown_percent
+        )
+
+        template["wfamex"] = 0
+
+        template["wx"] = 0
+
+        template["g100g"] = 0
+
+        unknown_rows.append(
+            template
+        )
+
+    dataset = pd.concat(
+        [
+            dataset,
+            pd.DataFrame(
+                unknown_rows
+            )
+        ],
+        ignore_index=True
     )
 
     return dataset
