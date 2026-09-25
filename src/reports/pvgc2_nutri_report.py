@@ -47,7 +47,7 @@ def build_pvgc2_nutri_report(
                     f"BLANK_{len(row)}"
                 )
 
-                row[blank_col] = ""
+                row[blank_col] = " "
 
                 continue
 
@@ -83,5 +83,13 @@ def build_pvgc2_nutri_report(
     report = pd.DataFrame(
         output_rows
     )
+
+    blank_columns = [
+        c for c in report.columns
+        if c.startswith("BLANK_")
+    ]
+
+    for col in blank_columns:
+        report[col] = ""
 
     return report

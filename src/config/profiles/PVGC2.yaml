@@ -81,8 +81,8 @@ nutri_order:
   - "C23:0"
   - "C24:0"
 
-  - "saturados %"
-  - "monosa nounit"
+  - ""
+  - ""
 
   - "C14:1"
   - "C15:1"
@@ -95,8 +95,8 @@ nutri_order:
   - "C22:1n9"
   - "C24:1"
 
-  - "monoinsaturados %"
-  - "poliinsa nounit"
+  - ""
+  - ""
 
   - "C18:2n6"
   - "C18:2t+t"
@@ -112,12 +112,12 @@ nutri_order:
   - "C22:5n3"
   - "C22:6n3"
 
-  - "poliinsaturados %"
-  - "epa+dha %"
-  - "epa+dha+dha %"
-  - "omega3 %"
-  - "omega6 %"
-  - "grasa_trans %"
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
 
   - "Unknow"
 
